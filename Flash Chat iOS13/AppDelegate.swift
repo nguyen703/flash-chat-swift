@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        let db = Firestore.firestore() // add Firestore
+        IQKeyboardManager.shared.enable = true //add IQKeyboardManager
+        IQKeyboardManager.shared.enableAutoToolbar = false //disable tool bar (with done btn)
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true //tap outside to hide keyboard
         return true
     }
 
